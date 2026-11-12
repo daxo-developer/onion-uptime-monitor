@@ -10,8 +10,8 @@ def test_invalid_checksum():
   assert is_valid_onion_v3(invalid_checksum) is False
 
 def test_wrong_length():
-  assert is_invalid_onion_v3("short.onion") is False
-  assert is_invalid_onion_v3("duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad") is False
+  assert is_valid_onion_v3("short.onion") is False
+  assert is_valid_onion_v3("duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad") is False
 
 def test_invalid_base32():
   assert is_valid_onion_v3("1uckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion") is False
