@@ -1,23 +1,27 @@
 [build-system]
 requires = ["setuptools>=61.0"]
-build-backed = "setuptools.build_meta"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "tor-monitor"
 version = "0.1.0"
 description = "Tor network observability tool"
-requires-python = ">3.10"
+requires-python = ">=3.10"
 dependencies = [
-  "aiohttp>=3.8.0",
-  "aiohttp-socks>=0.8.0",
-  "pyyaml>=6.0",
+    "aiohttp>=3.8.0",
+    "aiohttp-socks>=0.8.0",
+    "pyyaml>=6.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-  "pytest>=7.0",
-  "pytest-asyncio>=0.21.0",
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21.0",
 ]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
+pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
