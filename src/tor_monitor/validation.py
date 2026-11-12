@@ -9,7 +9,7 @@ def is_valid_onion_v3(address: str) -> bool:
   if not address.endswith(".onion"):
     return False
 
-  raw_addres = address[:-6].upper()
+  raw_address = address[:-6].upper()
 
   if len(raw_address) != 56:
     return False
