@@ -2,7 +2,7 @@ import pytest
 from tor_monitor.validation import is_valid_onion_v3
 
 def test_valid_onion_address():
-  valid addr = "duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion"
+  valid_addr = "duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion"
   assert is_valid_onion_v3(valid_addr) is True
 
 def test_invalid_checksum():
