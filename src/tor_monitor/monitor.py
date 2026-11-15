@@ -1,7 +1,7 @@
 import asyncio
 import yaml
 import uuid
-from tor_monitor.db import init_db, seed_queue, claim_task, complete_task, record_measurement
+from tor_monitor.db import init_db, seed_queue, claim_task, complete_task, record_measurement, reschedule_done_tasks
 from tor_monitor.fetch import fetch_onion
 
 WORKER_ID = str(uuid.uuid4())[:8]
@@ -13,6 +13,7 @@ async def worker_loop(conn, services_map):
         task = claim_task(conn, WORKER_ID)
         
         if task is None:
+            reschedule_done_tasks(conn, delay_seconds=300)
             await asyncio.sleep(5)
             continue
             
