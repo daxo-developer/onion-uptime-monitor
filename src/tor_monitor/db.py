@@ -4,7 +4,7 @@ import random
 
 def init_db(db_path: str = "monitor.db"):
     """Initializes SQLite with WAL mode and queue tables."""
-    conn = sqlite3.connect(db_path, isolation_level=None) # Autocommit mode for manual transaction control
+    conn = sqlite3.connect(db_path, isolation_level=None)
     conn.execute("PRAGMA journal_mode=WAL;")
     
     conn.execute("""
@@ -32,7 +32,6 @@ def init_db(db_path: str = "monitor.db"):
     return conn
 
 def seed_queue(conn: sqlite3.Connection, services: list):
-    """Adds services to the queue if they don't exist."""
     for svc in services:
         conn.execute(
             "INSERT OR IGNORE INTO queue (service_id, state, next_attempt_at) VALUES (?, 'pending', ?)",
@@ -40,7 +39,6 @@ def seed_queue(conn: sqlite3.Connection, services: list):
         )
 
 def claim_task(conn: sqlite3.Connection, worker_id: str):
-    """Atomically claims a pending task. Uses BEGIN IMMEDIATE to prevent race conditions."""
     conn.execute("BEGIN IMMEDIATE;")
     cursor = conn.execute("""
         UPDATE queue 
@@ -57,11 +55,9 @@ def claim_task(conn: sqlite3.Connection, worker_id: str):
     return row
 
 def complete_task(conn: sqlite3.Connection, service_id: str, success: bool, attempts: int):
-    """Marks a task as done or schedules a retry with exponential backoff."""
     if success:
         conn.execute("UPDATE queue SET state = 'done', worker_id = NULL WHERE service_id = ?", (service_id,))
     else:
-        # Exponential backoff: 2^attempts * 10 seconds + jitter
         delay = (2 ** attempts) * 10 + random.randint(1, 5)
         next_time = int(time.time()) + delay
         conn.execute(
@@ -69,8 +65,16 @@ def complete_task(conn: sqlite3.Connection, service_id: str, success: bool, atte
             (attempts, next_time, service_id)
         )
 
+def reschedule_done_tasks(conn: sqlite3.Connection, delay_seconds: int = 300):
+    """ВАЖНО: Возвращает выполненные задачи обратно в очередь с задержкой."""
+    next_time = int(time.time()) + delay_seconds
+    conn.execute("""
+        UPDATE queue 
+        SET state = 'pending', attempts = 0, next_attempt_at = ? 
+        WHERE state = 'done'
+    """, (next_time,))
+
 def record_measurement(conn: sqlite3.Connection, service_id: str, result: dict):
-    """Inserts a measurement result into the database."""
     conn.execute(
         "INSERT INTO measurements (service_id, ts, ok, status, latency_ms, error_class) VALUES (?, ?, ?, ?, ?, ?)",
         (service_id, int(time.time()), int(result["ok"]), result["status"], result["latency_ms"], result["error_class"])
