@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onion Uptime Monitor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <h1>🧅 Onion Uptime Monitor</h1>
+            <span id="last-updated">Loading...</span>
+        </div>
+        <p>Real-time observability of Tor hidden services</p>
+    </header>
+
+    <main>
+        <div class="kpi-container">
+            <div class="kpi-card">
+                <h3>Monitored Services</h3>
+                <p id="kpi-total">-</p>
+            </div>
+            <div class="kpi-card">
+                <h3>Average Uptime</h3>
+                <p id="kpi-uptime">-</p>
+            </div>
+            <div class="kpi-card">
+                <h3>Average Latency (p50)</h3>
+                <p id="kpi-latency">-</p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2>Uptime Percentage (%)</h2>
+                <span class="legend"><span class="dot green"></span> &gt;90% <span class="dot yellow"></span> 80-90% <span class="dot red"></span> &lt;80%</span>
+            </div>
+            <canvas id="uptimeChart"></canvas>
+        </div>
+        
+        <div class="chart-container">
+            <h2>Latency (ms) - p50 vs p95</h2>
+            <canvas id="latencyChart"></canvas>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
