@@ -1,89 +1,74 @@
 {
     "duckduckgo": {
-        "total_checks": 88,
-        "uptime_pct": 95.45,
-        "latency_p50_ms": 3519.22,
-        "latency_p95_ms": 27087.22,
-        "errors": {
-            "ProxyTimeoutError": 3,
-            "TimeoutError": 1
-        }
+        "total_checks": 1,
+        "uptime_pct": 100.0,
+        "ttfb_p50_ms": 6655.57,
+        "latency_p50_ms": 6907.65,
+        "latency_p95_ms": 6907.65,
+        "errors": {}
     },
     "debian_www": {
-        "total_checks": 95,
-        "uptime_pct": 88.42,
-        "latency_p50_ms": 3730.05,
-        "latency_p95_ms": 34484.16,
-        "errors": {
-            "ProxyTimeoutError": 9,
-            "TimeoutError": 2
-        }
+        "total_checks": 1,
+        "uptime_pct": 100.0,
+        "ttfb_p50_ms": 2832.97,
+        "latency_p50_ms": 2833.27,
+        "latency_p95_ms": 2833.27,
+        "errors": {}
     },
     "debian_ftp": {
-        "total_checks": 94,
-        "uptime_pct": 89.36,
-        "latency_p50_ms": 3973.84,
-        "latency_p95_ms": 41357.57,
-        "errors": {
-            "TimeoutError": 4,
-            "ProxyTimeoutError": 6
-        }
+        "total_checks": 1,
+        "uptime_pct": 100.0,
+        "ttfb_p50_ms": 2957.97,
+        "latency_p50_ms": 2958.03,
+        "latency_p95_ms": 2958.03,
+        "errors": {}
     },
     "debian_security": {
-        "total_checks": 88,
-        "uptime_pct": 95.45,
-        "latency_p50_ms": 4267.9,
-        "latency_p95_ms": 20084.3,
-        "errors": {
-            "ProxyTimeoutError": 3,
-            "ProxyError": 1
-        }
+        "total_checks": 1,
+        "uptime_pct": 100.0,
+        "ttfb_p50_ms": 3260.01,
+        "latency_p50_ms": 3265.56,
+        "latency_p95_ms": 3265.56,
+        "errors": {}
     },
     "debian_tracker": {
-        "total_checks": 85,
-        "uptime_pct": 98.82,
-        "latency_p50_ms": 2779.7,
-        "latency_p95_ms": 11070.08,
-        "errors": {
-            "ProxyTimeoutError": 1
-        }
+        "total_checks": 1,
+        "uptime_pct": 100.0,
+        "ttfb_p50_ms": 50267.68,
+        "latency_p50_ms": 50267.71,
+        "latency_p95_ms": 50267.71,
+        "errors": {}
     },
     "debian_planet": {
-        "total_checks": 46,
-        "uptime_pct": 76.09,
-        "latency_p50_ms": 3946.96,
-        "latency_p95_ms": 16421.85,
-        "errors": {
-            "ProxyTimeoutError": 11
-        }
+        "total_checks": 1,
+        "uptime_pct": 100.0,
+        "ttfb_p50_ms": 14858.14,
+        "latency_p50_ms": 15472.87,
+        "latency_p95_ms": 15472.87,
+        "errors": {}
     },
     "debian_onion_index": {
-        "total_checks": 52,
-        "uptime_pct": 71.15,
-        "latency_p50_ms": 2981.13,
-        "latency_p95_ms": 37868.09,
-        "errors": {
-            "ProxyTimeoutError": 14,
-            "TimeoutError": 1
-        }
+        "total_checks": 1,
+        "uptime_pct": 100.0,
+        "ttfb_p50_ms": 3264.17,
+        "latency_p50_ms": 3407.26,
+        "latency_p95_ms": 3407.26,
+        "errors": {}
     },
     "debian_manpages": {
-        "total_checks": 91,
-        "uptime_pct": 87.91,
-        "latency_p50_ms": 3294.63,
-        "latency_p95_ms": 36117.96,
-        "errors": {
-            "ProxyTimeoutError": 11
-        }
+        "total_checks": 1,
+        "uptime_pct": 100.0,
+        "ttfb_p50_ms": 3880.41,
+        "latency_p50_ms": 3904.45,
+        "latency_p95_ms": 3904.45,
+        "errors": {}
     },
     "debian_micronews": {
-        "total_checks": 96,
-        "uptime_pct": 86.46,
-        "latency_p50_ms": 3164.45,
-        "latency_p95_ms": 30033.81,
-        "errors": {
-            "ProxyTimeoutError": 12,
-            "ProxyError": 1
-        }
+        "total_checks": 1,
+        "uptime_pct": 100.0,
+        "ttfb_p50_ms": 5751.07,
+        "latency_p50_ms": 5751.17,
+        "latency_p95_ms": 5751.17,
+        "errors": {}
     }
 }
