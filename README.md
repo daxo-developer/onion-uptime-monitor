@@ -1,5 +1,8 @@
 # Onion Uptime Monitor
 
+**Live Dashboard:** [https://daxo-developer.github.io/onion-uptime-monitor/](https://daxo-developer.github.io/onion-uptime-monitor/)
+
+
 ## Mission
 
 A research tool to measure the availability and latency of public, legal Tor onion services (Tor Project, DuckDuckGo, Debian, SecureDrop instances) and compare them against their clearnet mirrors.
