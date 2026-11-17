@@ -1,9 +1,10 @@
 import sqlite3
 import time
 import random
+import os
 
 def init_db(db_path: str = "monitor.db"):
-    """Initializes SQLite with WAL mode and queue tables."""
+    if os.getenv("DOCKER_ENV"): db_path = "data/monitor.db"
     conn = sqlite3.connect(db_path, isolation_level=None)
     conn.execute("PRAGMA journal_mode=WAL;")
     
@@ -14,6 +15,7 @@ def init_db(db_path: str = "monitor.db"):
             ts INTEGER NOT NULL,
             ok INTEGER NOT NULL,
             status INTEGER,
+            ttfb_ms REAL,
             latency_ms REAL,
             error_class TEXT
         )
@@ -66,16 +68,11 @@ def complete_task(conn: sqlite3.Connection, service_id: str, success: bool, atte
         )
 
 def reschedule_done_tasks(conn: sqlite3.Connection, delay_seconds: int = 300):
-    """ВАЖНО: Возвращает выполненные задачи обратно в очередь с задержкой."""
     next_time = int(time.time()) + delay_seconds
-    conn.execute("""
-        UPDATE queue 
-        SET state = 'pending', attempts = 0, next_attempt_at = ? 
-        WHERE state = 'done'
-    """, (next_time,))
+    conn.execute("UPDATE queue SET state = 'pending', attempts = 0, next_attempt_at = ? WHERE state = 'done'", (next_time,))
 
 def record_measurement(conn: sqlite3.Connection, service_id: str, result: dict):
     conn.execute(
-        "INSERT INTO measurements (service_id, ts, ok, status, latency_ms, error_class) VALUES (?, ?, ?, ?, ?, ?)",
-        (service_id, int(time.time()), int(result["ok"]), result["status"], result["latency_ms"], result["error_class"])
+        "INSERT INTO measurements (service_id, ts, ok, status, ttfb_ms, latency_ms, error_class) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        (service_id, int(time.time()), int(result["ok"]), result["status"], result["ttfb_ms"], result["latency_ms"], result["error_class"])
     )

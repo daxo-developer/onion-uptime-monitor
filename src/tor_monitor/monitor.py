@@ -30,12 +30,12 @@ async def worker_loop(conn, services_map):
         try:
             result = await asyncio.wait_for(fetch_onion(url), timeout=65.0)
         except asyncio.TimeoutError:
-            result = {"status": 0, "ok": False, "latency_ms": 0, "error_class": "asyncio_timeout"}
+            result = {"status": 0, "ok": False, "ttfb_ms": 0, "latency_ms": 0, "error_class": "asyncio_timeout"}
             
         record_measurement(conn, service_id, result)
         
         if result["ok"]:
-            print(f"[{WORKER_ID}] Success: {service_id} - {result['latency_ms']:.2f} ms")
+            print(f"[{WORKER_ID}] Success: {service_id} - TTFB: {result['ttfb_ms']:.0f}ms | Total: {result['latency_ms']:.0f}ms")
             complete_task(conn, service_id, True, attempts)
         else:
             print(f"[{WORKER_ID}] Failed: {service_id} - {result['error_class']}")
