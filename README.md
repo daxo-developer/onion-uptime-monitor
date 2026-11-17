@@ -7,7 +7,7 @@
 
 ## Architecture
 
-```
+```mermaid
 graph LR
     W[Monitor Worker] -->|SOCKS5| T[Tor Proxy]
     T -->|Onion| O[.onion Services]
