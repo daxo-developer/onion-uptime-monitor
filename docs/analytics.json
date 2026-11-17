@@ -1,74 +1,109 @@
 {
     "duckduckgo": {
-        "total_checks": 1,
-        "uptime_pct": 100.0,
-        "ttfb_p50_ms": 6655.57,
-        "latency_p50_ms": 6907.65,
-        "latency_p95_ms": 6907.65,
-        "errors": {}
+        "total_checks": 52,
+        "uptime_pct": 78.85,
+        "ttfb_p50_ms": 2195.03,
+        "latency_p50_ms": 2418.94,
+        "latency_p95_ms": 5901.17,
+        "errors": {
+            "ProxyTimeoutError": 10,
+            "ProxyError": 1
+        }
     },
     "debian_www": {
-        "total_checks": 1,
-        "uptime_pct": 100.0,
-        "ttfb_p50_ms": 2832.97,
-        "latency_p50_ms": 2833.27,
-        "latency_p95_ms": 2833.27,
-        "errors": {}
+        "total_checks": 81,
+        "uptime_pct": 81.48,
+        "ttfb_p50_ms": 3073.52,
+        "latency_p50_ms": 3118.15,
+        "latency_p95_ms": 16274.49,
+        "errors": {
+            "ProxyTimeoutError": 15
+        }
     },
-    "debian_ftp": {
-        "total_checks": 1,
-        "uptime_pct": 100.0,
-        "ttfb_p50_ms": 2957.97,
-        "latency_p50_ms": 2958.03,
-        "latency_p95_ms": 2958.03,
-        "errors": {}
+    "archive_today": {
+        "total_checks": 79,
+        "uptime_pct": 86.08,
+        "ttfb_p50_ms": 1976.23,
+        "latency_p50_ms": 2024.81,
+        "latency_p95_ms": 4449.36,
+        "errors": {
+            "ProxyTimeoutError": 11
+        }
     },
-    "debian_security": {
-        "total_checks": 1,
-        "uptime_pct": 100.0,
-        "ttfb_p50_ms": 3260.01,
-        "latency_p50_ms": 3265.56,
-        "latency_p95_ms": 3265.56,
-        "errors": {}
+    "protonmail": {
+        "total_checks": 80,
+        "uptime_pct": 85.0,
+        "ttfb_p50_ms": 1607.75,
+        "latency_p50_ms": 1750.41,
+        "latency_p95_ms": 4990.79,
+        "errors": {
+            "ProxyTimeoutError": 12
+        }
     },
-    "debian_tracker": {
-        "total_checks": 1,
-        "uptime_pct": 100.0,
-        "ttfb_p50_ms": 50267.68,
-        "latency_p50_ms": 50267.71,
-        "latency_p95_ms": 50267.71,
-        "errors": {}
+    "cloudflare_dns": {
+        "total_checks": 79,
+        "uptime_pct": 86.08,
+        "ttfb_p50_ms": 3093.48,
+        "latency_p50_ms": 3263.11,
+        "latency_p95_ms": 4679.02,
+        "errors": {
+            "ProxyTimeoutError": 10,
+            "ProxyError": 1
+        }
     },
-    "debian_planet": {
-        "total_checks": 1,
-        "uptime_pct": 100.0,
-        "ttfb_p50_ms": 14858.14,
-        "latency_p50_ms": 15472.87,
-        "latency_p95_ms": 15472.87,
-        "errors": {}
+    "securedrop_nytimes": {
+        "total_checks": 78,
+        "uptime_pct": 87.18,
+        "ttfb_p50_ms": 2769.99,
+        "latency_p50_ms": 2781.96,
+        "latency_p95_ms": 6129.9,
+        "errors": {
+            "ProxyTimeoutError": 9,
+            "ProxyError": 1
+        }
     },
-    "debian_onion_index": {
-        "total_checks": 1,
-        "uptime_pct": 100.0,
-        "ttfb_p50_ms": 3264.17,
-        "latency_p50_ms": 3407.26,
-        "latency_p95_ms": 3407.26,
-        "errors": {}
+    "securedrop_washingtonpost": {
+        "total_checks": 77,
+        "uptime_pct": 87.01,
+        "ttfb_p50_ms": 2958.82,
+        "latency_p50_ms": 2959.0,
+        "latency_p95_ms": 5775.63,
+        "errors": {
+            "ProxyTimeoutError": 8,
+            "TimeoutError": 1,
+            "ClientOSError": 1
+        }
     },
-    "debian_manpages": {
-        "total_checks": 1,
-        "uptime_pct": 100.0,
-        "ttfb_p50_ms": 3880.41,
-        "latency_p50_ms": 3904.45,
-        "latency_p95_ms": 3904.45,
-        "errors": {}
+    "securedrop_guardian": {
+        "total_checks": 82,
+        "uptime_pct": 80.49,
+        "ttfb_p50_ms": 1602.58,
+        "latency_p50_ms": 1637.43,
+        "latency_p95_ms": 5219.53,
+        "errors": {
+            "ProxyTimeoutError": 16
+        }
     },
-    "debian_micronews": {
-        "total_checks": 1,
-        "uptime_pct": 100.0,
-        "ttfb_p50_ms": 5751.07,
-        "latency_p50_ms": 5751.17,
-        "latency_p95_ms": 5751.17,
-        "errors": {}
+    "securedrop_forbes": {
+        "total_checks": 77,
+        "uptime_pct": 87.01,
+        "ttfb_p50_ms": 1346.81,
+        "latency_p50_ms": 1346.97,
+        "latency_p95_ms": 4189.86,
+        "errors": {
+            "ProxyTimeoutError": 9,
+            "ProxyError": 1
+        }
+    },
+    "securedrop_propublica": {
+        "total_checks": 76,
+        "uptime_pct": 88.16,
+        "ttfb_p50_ms": 1352.96,
+        "latency_p50_ms": 1353.06,
+        "latency_p95_ms": 3095.75,
+        "errors": {
+            "ProxyTimeoutError": 8,
+            "TimeoutError": 1
+        }
     }
 }
